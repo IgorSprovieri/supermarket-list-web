@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./index.css";
 import { Button, Input } from "../../components";
+import "./index.css";
+import { SAVE_USERNAME_PATH } from "../../services/constants";
 
 export const HomeScreen = () => {
   const Navigate = useNavigate();
@@ -12,7 +13,7 @@ export const HomeScreen = () => {
       alert("Username é necessário");
       return;
     }
-    localStorage.setItem("@supermarket-list:username", username);
+    localStorage.setItem(SAVE_USERNAME_PATH, username);
     Navigate("/list");
   };
 
