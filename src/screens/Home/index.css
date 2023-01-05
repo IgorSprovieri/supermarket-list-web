@@ -1,0 +1,46 @@
+.home-screen-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #7785db;
+}
+
+.home-screen-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 552px;
+  height: 720px;
+  background-color: #ffffff;
+  border-radius: 24px;
+}
+
+.shopping-bag-image {
+  width: 220px;
+  height: 220px;
+}
+
+.home-screen-title {
+  max-width: 310px;
+  text-align: center;
+}
+
+.home-screen-subtitle {
+  max-width: 310px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.home-screen-subtitle-form {
+  max-width: 452px;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.home-screen-button-container {
+  width: 452px;
+  margin-top: 16px;
+}
