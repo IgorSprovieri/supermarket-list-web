@@ -4,24 +4,25 @@
   align-items: flex-start;
   justify-content: flex-start;
   width: 452px;
-  height: 48px;
+  height: 64px;
   border-radius: 8px;
   border: 2px solid #7785db;
 }
 
 .input-label {
-  font-size: 12px;
-  margin-top: 6px;
-  margin-left: 6px;
+  font-size: 16px;
+  margin-top: 8px;
+  margin-left: 8px;
 }
 
 .input {
   border: 0px;
-  margin-top: 2px;
-  margin-left: 6px;
-  margin-bottom: 6px;
+  margin-top: 4px;
+  margin-left: 8px;
+  margin-bottom: 8px;
   font-family: "Avenir Next";
-  font-size: 16px;
+  font-size: 18px;
+  width: calc(100% - 24px);
 }
 
 .input:focus {

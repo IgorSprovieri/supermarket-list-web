@@ -59,3 +59,15 @@
 .list-screen-header-title {
   margin-left: 24px;
 }
+
+.list-render-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

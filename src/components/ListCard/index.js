@@ -3,6 +3,7 @@ import { updateList } from "../../services/request";
 import { useState } from "react";
 
 export const ListCard = (props) => {
+  const { onClickDelete, onClickUpdate } = props;
   const [item, setItem] = useState(props.item);
 
   async function onClickCheckBox() {
@@ -38,18 +39,11 @@ export const ListCard = (props) => {
         </span>
       </div>
       <div className="list-card-buttons-container">
-        <button onClick={onClickCheckBox} className="list-card-button">
+        <button onClick={() => onClickDelete()} className="list-card-button">
           <img
             className="list-card-close-image"
             src="/images/close.svg"
             alt="delete-item"
-          ></img>
-        </button>
-        <button onClick={onClickCheckBox} className="list-card-button">
-          <img
-            className="list-card-arrow-image"
-            src="/images/arrow.svg"
-            alt="update-item"
           ></img>
         </button>
       </div>
