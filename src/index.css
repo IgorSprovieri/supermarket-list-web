@@ -5,6 +5,12 @@
 
 @font-face {
   font-family: "Avenir Next";
+  src: url("../public/fonts/AvenirNext-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Avenir Next";
   src: url("../public/fonts/AvenirNext-Bold.otf");
   font-weight: bold;
 }
@@ -28,6 +34,13 @@ code {
 }
 
 h1 {
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 22px;
+  color: black;
+}
+
+h2 {
   font-size: 24px;
   font-weight: bold;
   line-height: 22px;
@@ -40,4 +53,9 @@ h3 {
   color: black;
   margin: 0px;
   padding: 0px;
+}
+
+::-webkit-scrollbar {
+  visibility: hidden;
+  width: 0px;
 }

@@ -25,9 +25,9 @@ export const HomeScreen = () => {
           src="/images/shopping-bag.svg"
           alt="Shopping-bag"
         ></img>
-        <h1 className="home-screen-title">
+        <h2 className="home-screen-title">
           Sua lista de supermercado mais fácil do que nunca
-        </h1>
+        </h2>
         <h3 className="home-screen-subtitle">
           Ajudamos você a organizar sua lista de compras de forma descomplicada.
         </h3>
