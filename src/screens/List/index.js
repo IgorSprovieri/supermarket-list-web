@@ -1,11 +1,12 @@
 import "./index.css";
 import { useEffect, useState } from "react";
-import { getList, deleteList } from "../../services/request";
-import { Button, Loader, ListCard } from "../../components";
+import { getList, deleteItem } from "../../services/request";
+import { Button, Loader, ListCard, Modal } from "../../components";
 
 export const ListScreen = () => {
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState(true);
+  const [modalEnabled, setModalEnabled] = useState(false);
 
   const loadList = async () => {
     setLoading(true);
@@ -19,12 +20,25 @@ export const ListScreen = () => {
   }, []);
 
   async function onClickDelete(id) {
-    const result = await deleteList(id);
+    const result = await deleteItem(id);
 
     if (result?.error) {
-      return window.alert("Erro ao deletar tarefa");
+      return;
     }
 
+    loadList();
+  }
+
+  function onClickUpdate(id) {
+    loadList();
+  }
+
+  function onClickAdd() {
+    setModalEnabled(true);
+  }
+
+  function onClickCloseModal() {
+    setModalEnabled(false);
     loadList();
   }
 
@@ -38,6 +52,7 @@ export const ListScreen = () => {
           <ListCard
             key={item._id}
             item={item}
+            onClickUpdate={() => onClickUpdate(item._id)}
             onClickDelete={() => onClickDelete(item._id)}
           />
         ))}
@@ -56,13 +71,21 @@ export const ListScreen = () => {
             ></img>
           </div>
           <div className="list-screen-button-container">
-            <Button>Adicionar</Button>
+            <Button onClick={() => onClickAdd()}>Adicionar</Button>
           </div>
         </div>
         <div className="list-screen-list-container">
           {loading ? <Loader></Loader> : listRender()}
         </div>
       </div>
+      <Modal
+        enabled={modalEnabled}
+        onClose={() => {
+          onClickCloseModal();
+        }}
+      >
+        Adicionar
+      </Modal>
     </div>
   );
 };

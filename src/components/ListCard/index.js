@@ -1,5 +1,5 @@
 import "./index.css";
-import { updateList } from "../../services/request";
+import { updateItem } from "../../services/request";
 import { useState } from "react";
 
 export const ListCard = (props) => {
@@ -7,19 +7,16 @@ export const ListCard = (props) => {
   const [item, setItem] = useState(props.item);
 
   async function onClickCheckBox() {
-    const updatedItem = new Object();
-    updatedItem._id = item._id;
-    updatedItem.name = item.name;
-    updatedItem.quantity = item.quantity;
-    updatedItem.username = item.username;
+    const updatedItem = item;
     updatedItem.checked = !item.checked;
 
-    const result = await updateList(item._id, updatedItem);
+    const result = await updateItem(item._id, updatedItem);
 
     if (result?.error) {
-      return window.alert("Erro inesperado");
+      return;
     }
 
+    setItem();
     setItem(updatedItem);
   }
 
@@ -39,11 +36,18 @@ export const ListCard = (props) => {
         </span>
       </div>
       <div className="list-card-buttons-container">
-        <button onClick={() => onClickDelete()} className="list-card-button">
+        <button onClick={onClickDelete} className="list-card-button">
           <img
             className="list-card-close-image"
             src="/images/close.svg"
             alt="delete-item"
+          ></img>
+        </button>
+        <button onClick={onClickUpdate} className="list-card-button">
+          <img
+            className="list-card-arrow-image"
+            src="/images/arrow.svg"
+            alt="update-item"
           ></img>
         </button>
       </div>

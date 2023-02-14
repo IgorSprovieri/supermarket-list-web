@@ -10,7 +10,7 @@ export const getList = async () => {
   }
 };
 
-export const updateList = async (id, item) => {
+export const updateItem = async (id, item) => {
   try {
     const result = await api.put(`/item/${id}`, {
       ...item,
@@ -22,12 +22,22 @@ export const updateList = async (id, item) => {
   }
 };
 
-export const deleteList = async (id) => {
+export const deleteItem = async (id) => {
   try {
     const result = await api.delete(`/item/${id}`);
     return result.data;
   } catch (error) {
     alert("Erro ao deletar dados da API");
+    return { error };
+  }
+};
+
+export const createItem = async (item) => {
+  try {
+    const result = await api.post("item", { ...item });
+    return result.data;
+  } catch (error) {
+    alert("Erro ao salvar dados da API");
     return { error };
   }
 };

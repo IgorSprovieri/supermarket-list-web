@@ -1,6 +1,6 @@
 import "./index.css";
 
-export const Input = ({ label, value, onChange }) => {
+export const Input = ({ label, value, onChange, type, min, required }) => {
   return (
     <div className="input-container">
       <span className="input-label">{label}</span>
@@ -8,6 +8,9 @@ export const Input = ({ label, value, onChange }) => {
         onChange={(e) => onChange(e.target.value)}
         value={value}
         className="input"
+        type={type}
+        min={min}
+        required={required}
       ></input>
     </div>
   );

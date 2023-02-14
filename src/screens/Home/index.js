@@ -34,11 +34,15 @@ export const HomeScreen = () => {
         <h3 className="home-screen-subtitle-form">
           Digite abaixo seu usuário para ter acesso a sua lista de compras:
         </h3>
-        <Input
-          onChange={(text) => setUsername(text)}
-          value={username}
-          label="username"
-        ></Input>
+
+        <div className="home-screen-input-container">
+          <Input
+            onChange={(text) => setUsername(text)}
+            value={username}
+            label="username"
+          ></Input>
+        </div>
+
         <div className="home-screen-button-container">
           <Button onClick={onClickContinue}>Continuar</Button>
         </div>
