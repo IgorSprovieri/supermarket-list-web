@@ -6,17 +6,23 @@ The main objective is to make life easier for people that go to supermarket. Usi
 
 # Preview
 
-<img src="public/images/readme preview.png" alt="App Preview" width="100%">
+<img src="public/images/preview.gif" alt="App Preview" width="100%">
 
-# Supermarket list API
+# Production App
+
+<a href="https://supermarket-list-web-delta.vercel.app">supermarket-list-web-delta.vercel.app</a>
+
+The app was deployed with vercel
+
+## Supermarket list API
 
 The API that this app use:
 
 <a href="https://github.com/IgorSprovieri/supermarket-list-API">github.com/IgorSprovieri/supermarket-list-API</a>
 
-# Progress
+## Progress
 
-{///////////////-----} 75%
+{////////////////////} 100%
 
 - Main Screen ✅
 - List Screen ✅
@@ -24,8 +30,8 @@ The API that this app use:
 - Add Items on list ✅
 - Update Item ✅
 - Delete Item ✅
-- Deploy
-- Media Query for Mobile
+- Media Query for Mobile ✅
+- Deploy ✅
 
 ## Used Technologies
 
