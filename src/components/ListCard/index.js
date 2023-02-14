@@ -7,7 +7,10 @@ export const ListCard = (props) => {
   const [item, setItem] = useState(props.item);
 
   async function onClickCheckBox() {
-    const updatedItem = item;
+    const updatedItem = new Object();
+    updatedItem._id = item._id;
+    updatedItem.name = item.name;
+    updatedItem.quantity = item.quantity;
     updatedItem.checked = !item.checked;
 
     const result = await updateItem(item._id, updatedItem);
@@ -16,26 +19,27 @@ export const ListCard = (props) => {
       return;
     }
 
-    setItem();
     setItem(updatedItem);
   }
 
   return (
     <div className="list-card-container">
-      <button onClick={onClickCheckBox} className="list-card-check-button">
-        <img
-          className="list-card-checkbox"
-          src={`/images/${item?.checked ? "checked.svg" : "unchecked.svg"}`}
-          alt="checked-item"
-        ></img>
-      </button>
-      <div className="list-card-text-container">
-        <span className="list-card-title-container">{item.name}</span>
-        <span className="list-card-subtitle-container">
-          {item.quantity} Unidades
-        </span>
+      <div className="list-card-left-container">
+        <button onClick={onClickCheckBox} className="list-card-check-button">
+          <img
+            className="list-card-checkbox"
+            src={`/images/${item?.checked ? "checked.svg" : "unchecked.svg"}`}
+            alt="checked-item"
+          ></img>
+        </button>
+        <div className="list-card-text-container">
+          <span className="list-card-title-container">{item.name}</span>
+          <span className="list-card-subtitle-container">
+            {item.quantity} Unidades
+          </span>
+        </div>
       </div>
-      <div className="list-card-buttons-container">
+      <div>
         <button onClick={onClickDelete} className="list-card-button">
           <img
             className="list-card-close-image"

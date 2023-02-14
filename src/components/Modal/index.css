@@ -50,3 +50,59 @@
   width: 32px;
   height: 32px;
 }
+
+#modal-open-animation {
+  animation: open 0.5s forwards;
+}
+
+#modal-close-animation {
+  animation: close 0.5s forwards;
+}
+
+#modal-close-animation .modal-container {
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes open {
+  0% {
+    transform: translateX(500px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes close {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(500px);
+  }
+}
+
+#modal-fade-in-animation {
+  animation: fadeIn 0.5s forwards;
+}
+
+#modal-fade-out-animation {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}

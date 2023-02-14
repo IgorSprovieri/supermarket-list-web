@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 97%;
   height: 58px;
   background-color: #f2f4ff;
@@ -11,6 +11,10 @@
   padding: 9px 12px;
 }
 
+.list-card-left-container {
+  display: flex;
+  flex-direction: row;
+}
 .list-card-checkbox {
   display: flex;
   align-items: center;
@@ -27,7 +31,6 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  width: 180px;
 }
 
 .list-card-title-container {
@@ -44,14 +47,6 @@
   border: 0px;
   background-color: #00000000;
   cursor: pointer;
-}
-
-.list-card-buttons-container {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: right;
 }
 
 .list-card-button {

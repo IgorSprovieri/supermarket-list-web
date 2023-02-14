@@ -2,11 +2,13 @@ import "./index.css";
 import { useEffect, useState } from "react";
 import { getList, deleteItem } from "../../services/request";
 import { Button, Loader, ListCard, Modal } from "../../components";
+import { render } from "@testing-library/react";
 
 export const ListScreen = () => {
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState(true);
   const [modalEnabled, setModalEnabled] = useState(false);
+  const [renderModal, setRenderModal] = useState(false);
   const [updatedItem, setUpdateItem] = useState();
 
   const loadList = async () => {
@@ -19,6 +21,16 @@ export const ListScreen = () => {
   useEffect(() => {
     loadList();
   }, []);
+
+  useEffect(() => {
+    if (modalEnabled === true) {
+      setRenderModal(true);
+    } else {
+      setTimeout(() => {
+        setRenderModal(false);
+      }, 500);
+    }
+  }, [modalEnabled]);
 
   async function onClickDelete(id) {
     const result = await deleteItem(id);
@@ -62,6 +74,7 @@ export const ListScreen = () => {
       </div>
     );
   }
+
   return (
     <div className="list-screen-container">
       <div className="list-screen-content-container">
@@ -81,13 +94,15 @@ export const ListScreen = () => {
           {loading ? <Loader></Loader> : listRender()}
         </div>
       </div>
-      <Modal
-        enabled={modalEnabled}
-        onClose={() => {
-          onClickCloseModal();
-        }}
-        item={updatedItem}
-      ></Modal>
+      {renderModal && (
+        <Modal
+          enabled={modalEnabled}
+          onClose={() => {
+            onClickCloseModal();
+          }}
+          item={updatedItem}
+        ></Modal>
+      )}
     </div>
   );
 };
