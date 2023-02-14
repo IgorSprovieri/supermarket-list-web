@@ -7,6 +7,7 @@ export const ListScreen = () => {
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState(true);
   const [modalEnabled, setModalEnabled] = useState(false);
+  const [updatedItem, setUpdateItem] = useState();
 
   const loadList = async () => {
     setLoading(true);
@@ -29,11 +30,13 @@ export const ListScreen = () => {
     loadList();
   }
 
-  function onClickUpdate(id) {
-    loadList();
+  function onClickUpdate(item) {
+    setUpdateItem(item);
+    setModalEnabled(true);
   }
 
   function onClickAdd() {
+    setUpdateItem();
     setModalEnabled(true);
   }
 
@@ -52,7 +55,7 @@ export const ListScreen = () => {
           <ListCard
             key={item._id}
             item={item}
-            onClickUpdate={() => onClickUpdate(item._id)}
+            onClickUpdate={() => onClickUpdate(item)}
             onClickDelete={() => onClickDelete(item._id)}
           />
         ))}
@@ -83,9 +86,8 @@ export const ListScreen = () => {
         onClose={() => {
           onClickCloseModal();
         }}
-      >
-        Adicionar
-      </Modal>
+        item={updatedItem}
+      ></Modal>
     </div>
   );
 };

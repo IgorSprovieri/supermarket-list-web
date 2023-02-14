@@ -1,22 +1,49 @@
 import "./index.css";
 import { Button, Input } from "../index";
-import { useState } from "react";
-import { createItem } from "../../services/request";
+import { useEffect, useState } from "react";
+import { createItem, updateItem } from "../../services/request";
 import { Loader } from "../index";
 
-export const Modal = ({ enabled, children, onClose }) => {
+export const Modal = ({ enabled, onClose, item }) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  async function onClickSubmit() {
+  useEffect(() => {
+    if (item?.name && item?.quantity) {
+      setName(item.name);
+      setQuantity(item.quantity);
+    }
+  }, [item]);
+
+  async function onClickAddItem() {
     if (name.length === 0) {
       return;
     }
 
     setLoading(true);
 
-    const result = await createItem({ name, quantity });
+    const result = await createItem({ name, quantity: Number(quantity) });
+
+    if (!result.error) {
+      setLoading(false);
+      setName("");
+      setQuantity(1);
+      onClose();
+    }
+  }
+
+  async function onClickUpdateItem() {
+    if (name.length === 0) {
+      return;
+    }
+
+    setLoading(true);
+
+    const result = await updateItem(item._id, {
+      name,
+      quantity: Number(quantity),
+    });
 
     if (!result.error) {
       setLoading(false);
@@ -51,7 +78,7 @@ export const Modal = ({ enabled, children, onClose }) => {
               ></img>
             </button>
             <div className="modal-title-container">
-              <h1>{children} Item</h1>
+              <h1>{item ? "Editar" : "Adicionar"} Item</h1>
             </div>
             <div className="modal-input-container">
               <Input
@@ -73,8 +100,17 @@ export const Modal = ({ enabled, children, onClose }) => {
               ></Input>
             </div>
             <div className="modal-button-container">
-              <Button onClick={() => onClickSubmit()} type="submit">
-                {children}
+              <Button
+                onClick={() => {
+                  if (!item) {
+                    onClickAddItem();
+                  } else {
+                    onClickUpdateItem();
+                  }
+                }}
+                type="submit"
+              >
+                {item ? "Editar" : "Adicionar"}
               </Button>
             </div>
           </div>
