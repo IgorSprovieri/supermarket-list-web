@@ -42,9 +42,34 @@
 
 .home-screen-button-container {
   width: 452px;
+  height: 42px;
   margin-top: 32px;
 }
 
 .home-screen-input-container {
   width: 452px;
+}
+
+@media screen and (max-width: 420px) {
+  .home-screen-content-container {
+    width: 90%;
+    height: 90%;
+  }
+
+  .shopping-bag-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .home-screen-subtitle-form {
+    width: 90%;
+  }
+
+  .home-screen-button-container {
+    width: 90%;
+  }
+
+  .home-screen-input-container {
+    width: 90%;
+  }
 }

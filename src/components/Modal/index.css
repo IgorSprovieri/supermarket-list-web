@@ -106,3 +106,15 @@
     opacity: 0%;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .modal-content-container {
+    width: calc(100vw - 96px);
+    height: calc(100vh - 96px);
+  }
+
+  .modal-close-button {
+    right: 16px;
+    top: 16px;
+  }
+}
