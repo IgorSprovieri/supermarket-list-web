@@ -16,14 +16,15 @@ The API that this app use:
 
 # Progress
 
-{////------} 40%
+{///////////////-----} 75%
 
 - Main Screen ✅
 - List Screen ✅
 - Get and List Items ✅
-- Add Items on list
-- Update Item
-- Delete Item
+- Add Items on list ✅
+- Update Item ✅
+- Delete Item ✅
+- Deploy
 - Media Query for Mobile
 
 ## Used Technologies
