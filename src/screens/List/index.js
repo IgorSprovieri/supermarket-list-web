@@ -2,14 +2,13 @@ import "./index.css";
 import { useEffect, useState } from "react";
 import { getList, deleteItem } from "../../services/request";
 import { Button, Loader, ListCard, Modal } from "../../components";
-import { render } from "@testing-library/react";
 
 export const ListScreen = () => {
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState(true);
   const [modalEnabled, setModalEnabled] = useState(false);
   const [renderModal, setRenderModal] = useState(false);
-  const [updatedItem, setUpdateItem] = useState();
+  const [itemToUpdate, setItemToUpdate] = useState();
 
   const loadList = async () => {
     setLoading(true);
@@ -32,7 +31,7 @@ export const ListScreen = () => {
     }
   }, [modalEnabled]);
 
-  async function onClickDelete(id) {
+  const onClickDelete = async (id) => {
     const result = await deleteItem(id);
 
     if (result?.error) {
@@ -40,24 +39,24 @@ export const ListScreen = () => {
     }
 
     loadList();
-  }
+  };
 
-  function onClickUpdate(item) {
-    setUpdateItem(item);
+  const onClickUpdate = (item) => {
+    setItemToUpdate(item);
     setModalEnabled(true);
-  }
+  };
 
-  function onClickAdd() {
-    setUpdateItem();
+  const onClickAdd = () => {
+    setItemToUpdate();
     setModalEnabled(true);
-  }
+  };
 
-  function onClickCloseModal() {
+  const onClickCloseModal = () => {
     setModalEnabled(false);
     loadList();
-  }
+  };
 
-  function listRender() {
+  const listRender = () => {
     if (listData?.length === 0) {
       return <h3>Sua lista está vazia</h3>;
     }
@@ -73,19 +72,17 @@ export const ListScreen = () => {
         ))}
       </div>
     );
-  }
+  };
 
   return (
     <div className="list-screen-container">
-      <div className="list-screen-content-container">
+      <div id="enter-page-animation" className="list-screen-content-container">
         <div className="list-screen-header">
-          <div className="list-screen-title-container">
-            <img
-              className="logo-img"
-              src="/images/logo.png"
-              alt="supermarket-list-logo"
-            ></img>
-          </div>
+          <img
+            className="logo-img"
+            src="/images/logo.png"
+            alt="supermarket-list-logo"
+          ></img>
           <div className="list-screen-button-container">
             <Button onClick={() => onClickAdd()}>Adicionar</Button>
           </div>
@@ -100,7 +97,7 @@ export const ListScreen = () => {
           onClose={() => {
             onClickCloseModal();
           }}
-          item={updatedItem}
+          item={itemToUpdate}
         ></Modal>
       )}
     </div>

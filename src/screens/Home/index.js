@@ -7,19 +7,25 @@ import { SAVE_USERNAME_PATH } from "../../services/constants";
 export const HomeScreen = () => {
   const Navigate = useNavigate();
   const [username, setUsername] = useState("");
+  const [pageAnimation, setPageAnimation] = useState("enter-page-animation");
 
   const onClickContinue = () => {
     if (!username) {
       alert("Username é necessário");
       return;
     }
+
     localStorage.setItem(SAVE_USERNAME_PATH, username);
-    Navigate("/list");
+
+    setPageAnimation("out-page-animation");
+    setTimeout(() => {
+      Navigate("/list");
+    }, 500);
   };
 
   return (
     <div className="home-screen-container">
-      <div className="home-screen-content-container">
+      <div id={pageAnimation} className="home-screen-content-container">
         <img
           className="shopping-bag-image"
           src="/images/shopping-bag.svg"

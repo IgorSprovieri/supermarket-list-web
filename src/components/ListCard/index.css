@@ -6,7 +6,7 @@
   width: 97%;
   height: 58px;
   background-color: #f2f4ff;
-  border-radius: 12px;
+  border-radius: 20px;
   margin-bottom: 12px;
   padding: 9px 12px;
 }
@@ -56,9 +56,43 @@
   background-color: #00000000;
 }
 
-.list-card-close-image {
+.list-card-trash-image {
   width: 20px;
 }
 .list-card-arrow-image {
   width: 10px;
+}
+
+.list-card-container:hover .list-card-arrow-image {
+  animation: list-card-on-hover 0.5s forwards;
+}
+
+.list-card-container:hover .list-card-trash-image {
+  animation: list-card-on-hover 0.5s forwards;
+}
+
+.list-card-container:not(hover) .list-card-arrow-image {
+  animation: list-card-out-hover 0.5s forwards;
+}
+
+.list-card-container:not(hover) .list-card-trash-image {
+  animation: list-card-out-hover 0.5s forwards;
+}
+
+@keyframes list-card-on-hover {
+  0% {
+    opacity: 25%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes list-card-out-hover {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 25%;
+  }
 }

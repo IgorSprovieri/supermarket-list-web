@@ -16,7 +16,7 @@ export const Modal = ({ enabled, onClose, item }) => {
     }
   }, [item]);
 
-  async function onClickAddItem() {
+  const onClickAddItem = async () => {
     if (name.length === 0) {
       return;
     }
@@ -31,9 +31,9 @@ export const Modal = ({ enabled, onClose, item }) => {
       setQuantity(1);
       onClose();
     }
-  }
+  };
 
-  async function onClickUpdateItem() {
+  const onClickUpdateItem = async () => {
     if (name.length === 0) {
       return;
     }
@@ -51,7 +51,7 @@ export const Modal = ({ enabled, onClose, item }) => {
       setQuantity(1);
       onClose();
     }
-  }
+  };
 
   return (
     <form

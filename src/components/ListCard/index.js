@@ -7,11 +7,12 @@ export const ListCard = (props) => {
   const [item, setItem] = useState(props.item);
 
   async function onClickCheckBox() {
-    const updatedItem = new Object();
-    updatedItem._id = item._id;
-    updatedItem.name = item.name;
-    updatedItem.quantity = item.quantity;
-    updatedItem.checked = !item.checked;
+    const updatedItem = {
+      _id: item._id,
+      name: item.name,
+      quantity: item.quantity,
+      checked: !item.checked,
+    };
 
     const result = await updateItem(item._id, updatedItem);
 
@@ -42,8 +43,8 @@ export const ListCard = (props) => {
       <div>
         <button onClick={onClickDelete} className="list-card-button">
           <img
-            className="list-card-close-image"
-            src="/images/close.svg"
+            className="list-card-trash-image"
+            src="/images/trash.svg"
             alt="delete-item"
           ></img>
         </button>

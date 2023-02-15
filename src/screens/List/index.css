@@ -29,12 +29,6 @@
   width: 100%;
 }
 
-.list-screen-title-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .list-screen-button-container {
   display: flex;
   flex-direction: row;

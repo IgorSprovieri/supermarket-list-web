@@ -8,7 +8,7 @@ The main objective is to make life easier for people that go to supermarket. Usi
 
 <img src="public/images/preview.gif" alt="App Preview" width="100%">
 
-# Production App
+## Production App
 
 <a href="https://supermarket-list-web-delta.vercel.app">supermarket-list-web-delta.vercel.app</a>
 
@@ -20,24 +20,12 @@ The API that this app use:
 
 <a href="https://github.com/IgorSprovieri/supermarket-list-API">github.com/IgorSprovieri/supermarket-list-API</a>
 
-## Progress
-
-{////////////////////} 100%
-
-- Main Screen ✅
-- List Screen ✅
-- Get and List Items ✅
-- Add Items on list ✅
-- Update Item ✅
-- Delete Item ✅
-- Media Query for Mobile ✅
-- Deploy ✅
-
 ## Used Technologies
 
 - React.js
 - CSS
 - Axios
+- React Router
 
 ## Requirements to Run:
 
@@ -48,13 +36,13 @@ The API that this app use:
 1. Clone the project:
 
 ```
-git clone https://github.com/gabrielrangel95/supermarket-list-fronted.git
+git clone https://github.com/IgorSprovieri/supermarket-list-web
 ```
 
 2. Install the dependecies:
 
 ```
-cd supermarket-list-frontend
+cd supermarket-list-web
 npm install
 ```
 

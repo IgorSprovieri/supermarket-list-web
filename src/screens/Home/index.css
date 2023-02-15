@@ -29,13 +29,13 @@
 }
 
 .home-screen-subtitle {
-  max-width: 310px;
+  width: 310px;
   text-align: center;
   margin-bottom: 48px;
 }
 
 .home-screen-subtitle-form {
-  max-width: 452px;
+  width: 452px;
   text-align: left;
   margin-bottom: 16px;
 }
