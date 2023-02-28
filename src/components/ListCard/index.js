@@ -1,26 +1,26 @@
-import "./index.css";
-import { updateItem } from "../../services/request";
-import { useState } from "react";
+import './index.css'
+import { updateItem } from 'services/request'
+import { useState } from 'react'
 
 export const ListCard = (props) => {
-  const { onClickDelete, onClickUpdate } = props;
-  const [item, setItem] = useState(props.item);
+  const { onClickDelete, onClickUpdate } = props
+  const [item, setItem] = useState(props.item)
 
   async function onClickCheckBox() {
     const updatedItem = {
       _id: item._id,
       name: item.name,
       quantity: item.quantity,
-      checked: !item.checked,
-    };
-
-    const result = await updateItem(item._id, updatedItem);
-
-    if (result?.error) {
-      return;
+      checked: !item.checked
     }
 
-    setItem(updatedItem);
+    const result = await updateItem(item._id, updatedItem)
+
+    if (result?.error) {
+      return
+    }
+
+    setItem(updatedItem)
   }
 
   return (
@@ -29,7 +29,7 @@ export const ListCard = (props) => {
         <button onClick={onClickCheckBox} className="list-card-check-button">
           <img
             className="list-card-checkbox"
-            src={`/images/${item?.checked ? "checked.svg" : "unchecked.svg"}`}
+            src={`/images/${item?.checked ? 'checked.svg' : 'unchecked.svg'}`}
             alt="checked-item"
           ></img>
         </button>
@@ -57,5 +57,5 @@ export const ListCard = (props) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}

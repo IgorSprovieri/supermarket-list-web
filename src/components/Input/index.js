@@ -1,4 +1,4 @@
-import "./index.css";
+import './index.css'
 
 export const Input = ({ label, value, onChange, type, min, required }) => {
   return (
@@ -13,5 +13,5 @@ export const Input = ({ label, value, onChange, type, min, required }) => {
         required={required}
       ></input>
     </div>
-  );
-};
+  )
+}

@@ -1,27 +1,27 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Button, Input } from "../../components";
-import "./index.css";
-import { SAVE_USERNAME_PATH } from "../../services/constants";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Button, Input } from 'components'
+import './index.css'
+import { SAVE_USERNAME_PATH } from 'services/constants'
 
 export const HomeScreen = () => {
-  const Navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [pageAnimation, setPageAnimation] = useState("enter-page-animation");
+  const Navigate = useNavigate()
+  const [username, setUsername] = useState('')
+  const [pageAnimation, setPageAnimation] = useState('enter-page-animation')
 
   const onClickContinue = () => {
     if (!username) {
-      alert("Username é necessário");
-      return;
+      alert('Username é necessário')
+      return
     }
 
-    localStorage.setItem(SAVE_USERNAME_PATH, username);
+    localStorage.setItem(SAVE_USERNAME_PATH, username)
 
-    setPageAnimation("out-page-animation");
+    setPageAnimation('out-page-animation')
     setTimeout(() => {
-      Navigate("/list");
-    }, 500);
-  };
+      Navigate('/list')
+    }, 500)
+  }
 
   return (
     <div className="home-screen-container">
@@ -54,5 +54,5 @@ export const HomeScreen = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

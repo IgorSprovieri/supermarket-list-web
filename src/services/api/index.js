@@ -1,9 +1,9 @@
-import axios from "axios";
-import { SAVE_USERNAME_PATH } from "../constants";
+import axios from 'axios'
+import { SAVE_USERNAME_PATH } from 'services/constants'
 
 export const api = axios.create({
-  baseURL: "https://supermarket-list-cloud-api.herokuapp.com/",
+  baseURL: 'https://supermarket-list-cloud-api.herokuapp.com/',
   headers: {
-    username: localStorage.getItem(SAVE_USERNAME_PATH) || "",
-  },
-});
+    username: localStorage.getItem(SAVE_USERNAME_PATH) || ''
+  }
+})

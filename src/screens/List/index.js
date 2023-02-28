@@ -1,64 +1,64 @@
-import "./index.css";
-import { useEffect, useState } from "react";
-import { getList, deleteItem } from "../../services/request";
-import { Button, Loader, ListCard, Modal } from "../../components";
+import './index.css'
+import { useEffect, useState } from 'react'
+import { getList, deleteItem } from 'services/request'
+import { Button, Loader, ListCard, Modal } from 'components'
 
 export const ListScreen = () => {
-  const [loading, setLoading] = useState(true);
-  const [listData, setListData] = useState(true);
-  const [modalEnabled, setModalEnabled] = useState(false);
-  const [renderModal, setRenderModal] = useState(false);
-  const [itemToUpdate, setItemToUpdate] = useState();
+  const [loading, setLoading] = useState(true)
+  const [listData, setListData] = useState(true)
+  const [modalEnabled, setModalEnabled] = useState(false)
+  const [renderModal, setRenderModal] = useState(false)
+  const [itemToUpdate, setItemToUpdate] = useState()
 
   const loadList = async () => {
-    setLoading(true);
-    const result = await getList();
-    setListData(result);
-    setLoading(false);
-  };
+    setLoading(true)
+    const result = await getList()
+    setListData(result)
+    setLoading(false)
+  }
 
   useEffect(() => {
-    loadList();
-  }, []);
+    loadList()
+  }, [])
 
   useEffect(() => {
     if (modalEnabled === true) {
-      setRenderModal(true);
+      setRenderModal(true)
     } else {
       setTimeout(() => {
-        setRenderModal(false);
-      }, 500);
+        setRenderModal(false)
+      }, 500)
     }
-  }, [modalEnabled]);
+  }, [modalEnabled])
 
   const onClickDelete = async (id) => {
-    const result = await deleteItem(id);
+    const result = await deleteItem(id)
 
     if (result?.error) {
-      return;
+      return
     }
 
-    loadList();
-  };
+    loadList()
+  }
 
   const onClickUpdate = (item) => {
-    setItemToUpdate(item);
-    setModalEnabled(true);
-  };
+    setItemToUpdate(item)
+    setModalEnabled(true)
+  }
 
   const onClickAdd = () => {
-    setItemToUpdate();
-    setModalEnabled(true);
-  };
+    setItemToUpdate()
+    setModalEnabled(true)
+  }
 
   const onClickCloseModal = () => {
-    setModalEnabled(false);
-    loadList();
-  };
+    setModalEnabled(false)
+    loadList()
+  }
 
   const listRender = () => {
     if (listData?.length === 0) {
-      return <h3>Sua lista está vazia</h3>;
+      return <h3>Sua lista está vazia</h3>
     }
     return (
       <div className="list-render-container">
@@ -71,8 +71,8 @@ export const ListScreen = () => {
           />
         ))}
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div className="list-screen-container">
@@ -95,11 +95,11 @@ export const ListScreen = () => {
         <Modal
           enabled={modalEnabled}
           onClose={() => {
-            onClickCloseModal();
+            onClickCloseModal()
           }}
           item={itemToUpdate}
         ></Modal>
       )}
     </div>
-  );
-};
+  )
+}

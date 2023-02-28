@@ -1,74 +1,74 @@
-import "./index.css";
-import { Button, Input } from "../index";
-import { useEffect, useState } from "react";
-import { createItem, updateItem } from "../../services/request";
-import { Loader } from "../index";
+import './index.css'
+import { Button, Input } from '../index'
+import { useEffect, useState } from 'react'
+import { createItem, updateItem } from 'services/request'
+import { Loader } from 'components'
 
 export const Modal = ({ enabled, onClose, item }) => {
-  const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState('')
+  const [quantity, setQuantity] = useState(1)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (item?.name && item?.quantity) {
-      setName(item.name);
-      setQuantity(item.quantity);
+      setName(item.name)
+      setQuantity(item.quantity)
     }
-  }, [item]);
+  }, [item])
 
   const onClickAddItem = async () => {
     if (name.length === 0) {
-      return;
+      return
     }
 
-    setLoading(true);
+    setLoading(true)
 
-    const result = await createItem({ name, quantity: Number(quantity) });
+    const result = await createItem({ name, quantity: Number(quantity) })
 
     if (!result.error) {
-      setLoading(false);
-      setName("");
-      setQuantity(1);
-      onClose();
+      setLoading(false)
+      setName('')
+      setQuantity(1)
+      onClose()
     }
-  };
+  }
 
   const onClickUpdateItem = async () => {
     if (name.length === 0) {
-      return;
+      return
     }
 
-    setLoading(true);
+    setLoading(true)
 
     const result = await updateItem(item._id, {
       name,
-      quantity: Number(quantity),
-    });
+      quantity: Number(quantity)
+    })
 
     if (!result.error) {
-      setLoading(false);
-      setName("");
-      setQuantity(1);
-      onClose();
+      setLoading(false)
+      setName('')
+      setQuantity(1)
+      onClose()
     }
-  };
+  }
 
   return (
     <form
       id={
         enabled === true
-          ? "modal-fade-in-animation"
-          : "modal-fade-out-animation"
+          ? 'modal-fade-in-animation'
+          : 'modal-fade-out-animation'
       }
       className="modal-container"
       onSubmit={(e) => {
-        e.preventDefault();
+        e.preventDefault()
       }}
     >
       {loading ? (
         <div
           id={
-            enabled === true ? "modal-open-animation" : "modal-close-animation"
+            enabled === true ? 'modal-open-animation' : 'modal-close-animation'
           }
           className="modal-content-container"
         >
@@ -77,7 +77,7 @@ export const Modal = ({ enabled, onClose, item }) => {
       ) : (
         <div
           id={
-            enabled === true ? "modal-open-animation" : "modal-close-animation"
+            enabled === true ? 'modal-open-animation' : 'modal-close-animation'
           }
           className="modal-content-container"
         >
@@ -89,7 +89,7 @@ export const Modal = ({ enabled, onClose, item }) => {
             ></img>
           </button>
           <div className="modal-title-container">
-            <h1>{item ? "Editar" : "Adicionar"} Item</h1>
+            <h1>{item ? 'Editar' : 'Adicionar'} Item</h1>
           </div>
           <div className="modal-input-container">
             <Input
@@ -114,18 +114,18 @@ export const Modal = ({ enabled, onClose, item }) => {
             <Button
               onClick={() => {
                 if (!item) {
-                  onClickAddItem();
+                  onClickAddItem()
                 } else {
-                  onClickUpdateItem();
+                  onClickUpdateItem()
                 }
               }}
               type="submit"
             >
-              {item ? "Editar" : "Adicionar"}
+              {item ? 'Editar' : 'Adicionar'}
             </Button>
           </div>
         </div>
       )}
     </form>
-  );
-};
+  )
+}
