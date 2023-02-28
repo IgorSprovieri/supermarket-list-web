@@ -1,8 +1,16 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input } from 'components'
-import './index.css'
 import { SAVE_USERNAME_PATH } from 'services/constants'
+import {
+  ScreenContainer,
+  ContentContainer,
+  ShoppingBagImage,
+  Title,
+  SubTitle,
+  InputContainer,
+  ButtonContainer
+} from 'screens/Home/styled'
 
 export const HomeScreen = () => {
   const Navigate = useNavigate()
@@ -24,35 +32,29 @@ export const HomeScreen = () => {
   }
 
   return (
-    <div className="home-screen-container">
-      <div id={pageAnimation} className="home-screen-content-container">
-        <img
-          className="shopping-bag-image"
-          src="/images/shopping-bag.svg"
-          alt="Shopping-bag"
-        ></img>
-        <h2 className="home-screen-title">
-          Sua lista de supermercado mais fácil do que nunca
-        </h2>
-        <h3 className="home-screen-subtitle">
+    <ScreenContainer>
+      <ContentContainer id={pageAnimation}>
+        <ShoppingBagImage></ShoppingBagImage>
+        <Title>Sua lista de supermercado mais fácil do que nunca</Title>
+        <SubTitle>
           Ajudamos você a organizar sua lista de compras de forma descomplicada.
-        </h3>
-        <h3 className="home-screen-subtitle-form">
+        </SubTitle>
+        <SubTitle width="452" align="left" marginBottom="16">
           Digite abaixo seu usuário para ter acesso a sua lista de compras:
-        </h3>
+        </SubTitle>
 
-        <div className="home-screen-input-container">
+        <InputContainer>
           <Input
             onChange={(text) => setUsername(text)}
             value={username}
             label="username"
           ></Input>
-        </div>
+        </InputContainer>
 
-        <div className="home-screen-button-container">
+        <ButtonContainer>
           <Button onClick={onClickContinue}>Continuar</Button>
-        </div>
-      </div>
-    </div>
+        </ButtonContainer>
+      </ContentContainer>
+    </ScreenContainer>
   )
 }

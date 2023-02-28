@@ -1,13 +1,15 @@
-.list-screen-container {
+import styled from 'styled-components'
+
+export const ScreenContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
   background-color: #7785db;
-}
+`
 
-.list-screen-content-container {
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -19,43 +21,62 @@
   padding: 48px;
   padding-top: 36px;
   overflow-y: hidden;
-}
 
-.list-screen-header {
+  @media (max-width: 840px) {
+    width: 80vw;
+    height: 80vh;
+    padding: 32px;
+  }
+
+  @media (max-width: 420px) {
+    width: 86vw;
+    height: 82vh;
+    padding: 16px;
+    padding-top: 32px;
+  }
+`
+export const Header = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-}
+`
 
-.list-screen-button-container {
+export const LogoImage = styled.img.attrs({
+  src: '/images/logo.png',
+  alt: 'supermarket-list-logo'
+})`
+  width: 72px;
+  height: 72px;
+
+  @media (max-width: 420px) {
+    width: 60px;
+    height: 60px;
+  }
+`
+
+export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 160px;
   height: 42px;
-}
 
-.logo-img {
-  width: 72px;
-  height: 72px;
-}
-
-.list-screen-list-container {
+  @media (max-width: 420px) {
+    width: 140px;
+    height: 38px;
+  }
+`
+export const ListContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 85%;
   margin-top: 36px;
-}
-
-.list-screen-header-title {
-  margin-left: 24px;
-}
-
-.list-render-container {
+`
+export const ListRenderContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -65,31 +86,4 @@
   margin-top: 0px;
   overflow-y: scroll;
   overflow-x: hidden;
-}
-
-@media screen and (max-width: 840px) {
-  .list-screen-content-container {
-    width: 80vw;
-    height: 80vh;
-    padding: 32px;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .list-screen-content-container {
-    width: 86vw;
-    height: 82vh;
-    padding: 16px;
-    padding-top: 32px;
-  }
-
-  .logo-img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .list-screen-button-container {
-    width: 140px;
-    height: 38px;
-  }
-}
+`

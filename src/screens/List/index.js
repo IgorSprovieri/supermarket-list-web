@@ -1,7 +1,15 @@
-import './index.css'
 import { useEffect, useState } from 'react'
 import { getList, deleteItem } from 'services/request'
 import { Button, Loader, ListCard, Modal } from 'components'
+import {
+  ScreenContainer,
+  ContentContainer,
+  Header,
+  LogoImage,
+  ButtonContainer,
+  ListContainer,
+  ListRenderContainer
+} from 'screens/List/styled'
 
 export const ListScreen = () => {
   const [loading, setLoading] = useState(true)
@@ -61,7 +69,7 @@ export const ListScreen = () => {
       return <h3>Sua lista está vazia</h3>
     }
     return (
-      <div className="list-render-container">
+      <ListRenderContainer>
         {listData.map((item) => (
           <ListCard
             key={item._id}
@@ -70,27 +78,23 @@ export const ListScreen = () => {
             onClickDelete={() => onClickDelete(item._id)}
           />
         ))}
-      </div>
+      </ListRenderContainer>
     )
   }
 
   return (
-    <div className="list-screen-container">
-      <div id="enter-page-animation" className="list-screen-content-container">
-        <div className="list-screen-header">
-          <img
-            className="logo-img"
-            src="/images/logo.png"
-            alt="supermarket-list-logo"
-          ></img>
-          <div className="list-screen-button-container">
+    <ScreenContainer>
+      <ContentContainer id="enter-page-animation">
+        <Header>
+          <LogoImage></LogoImage>
+          <ButtonContainer>
             <Button onClick={() => onClickAdd()}>Adicionar</Button>
-          </div>
-        </div>
-        <div className="list-screen-list-container">
+          </ButtonContainer>
+        </Header>
+        <ListContainer>
           {loading ? <Loader></Loader> : listRender()}
-        </div>
-      </div>
+        </ListContainer>
+      </ContentContainer>
       {renderModal && (
         <Modal
           enabled={modalEnabled}
@@ -100,6 +104,6 @@ export const ListScreen = () => {
           item={itemToUpdate}
         ></Modal>
       )}
-    </div>
+    </ScreenContainer>
   )
 }
