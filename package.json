@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,json,md}'"
+    "format": "prettier --write './**/*.{js,jsx,css,json,md}'"
   },
   "eslintConfig": {
     "extends": [
