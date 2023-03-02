@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react'
 import { getList, deleteItem } from 'services/request'
-import { Button, Loader, ListCard, Modal } from 'components'
 import {
-  ScreenContainer,
+  Button,
+  Loader,
+  ListCard,
+  Modal,
+  LogoImage,
+  ScreenContainer
+} from 'components'
+import {
   ContentContainer,
   Header,
-  LogoImage,
   ButtonContainer,
   ListContainer,
   ListRenderContainer
@@ -84,7 +89,7 @@ export const ListScreen = () => {
 
   return (
     <ScreenContainer>
-      <ContentContainer id="enter-page-animation">
+      <ContentContainer anim="enter-page-animation">
         <Header>
           <LogoImage></LogoImage>
           <ButtonContainer>

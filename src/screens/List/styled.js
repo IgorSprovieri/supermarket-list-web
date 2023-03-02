@@ -1,14 +1,5 @@
 import styled from 'styled-components'
 
-export const ScreenContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: #7785db;
-`
-
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,6 +12,7 @@ export const ContentContainer = styled.div`
   padding: 48px;
   padding-top: 36px;
   overflow-y: hidden;
+  animation: ${({ anim }) => anim} 0.5s forwards;
 
   @media (max-width: 840px) {
     width: 80vw;
@@ -41,19 +33,6 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-`
-
-export const LogoImage = styled.img.attrs({
-  src: '/images/logo.png',
-  alt: 'supermarket-list-logo'
-})`
-  width: 72px;
-  height: 72px;
-
-  @media (max-width: 420px) {
-    width: 60px;
-    height: 60px;
-  }
 `
 
 export const ButtonContainer = styled.div`

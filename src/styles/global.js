@@ -35,42 +35,13 @@ export const GlobalStyle = createGlobalStyle`
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   }
-  h1 {
-  font-size: 36px;
-  font-weight: bold;
-  line-height: 22px;
-  color: black;
-  }
-
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 22px;
-    color: black;
-  }
-
-  h3 {
-    font-size: 16px;
-    font-weight: 500;
-    color: black;
-    margin: 0px;
-    padding: 0px;
-  }
 
   ::-webkit-scrollbar {
     visibility: hidden;
     width: 0px;
   }
 
-  #enter-page-animation {
-    animation: enter-page 0.5s forwards;
-  }
-
-  #out-page-animation {
-    animation: out-page 0.5s forwards;
-  }
-
-  @keyframes enter-page {
+  @keyframes enter-page-animation {
     0% {
       transform: scale(0%);
     }
@@ -79,12 +50,30 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  @keyframes out-page {
+  @keyframes out-page-animation {
     0% {
       transform: scale(100%);
     }
     100% {
       transform: scale(0%);
+    }
+  }
+
+  @keyframes list-card-on-hover {
+    0% {
+      opacity: 25%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+
+  @keyframes list-card-out-hover {
+    0% {
+      opacity: 100%;
+    }
+    100% {
+      opacity: 25%;
     }
   }
 `

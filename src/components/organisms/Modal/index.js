@@ -1,8 +1,17 @@
-import './index.css'
-import { Button, Input } from '../index'
+import './styled'
 import { useEffect, useState } from 'react'
 import { createItem, updateItem } from 'services/request'
-import { Loader } from 'components'
+import { Loader, Button, Input } from 'components'
+import {
+  Form,
+  Container,
+  TitleContainer,
+  CloseButton,
+  CloseImage,
+  InputContainer,
+  ButtonContainer
+} from './styled'
+import { BigTitle } from 'components'
 
 export const Modal = ({ enabled, onClose, item }) => {
   const [name, setName] = useState('')
@@ -54,44 +63,25 @@ export const Modal = ({ enabled, onClose, item }) => {
   }
 
   return (
-    <form
-      id={
-        enabled === true
-          ? 'modal-fade-in-animation'
-          : 'modal-fade-out-animation'
-      }
-      className="modal-container"
+    <Form
+      anim={enabled === true ? 'fadeIn' : 'fadeOut'}
       onSubmit={(e) => {
         e.preventDefault()
       }}
     >
       {loading ? (
-        <div
-          id={
-            enabled === true ? 'modal-open-animation' : 'modal-close-animation'
-          }
-          className="modal-content-container"
-        >
+        <Container anim={enabled === true ? 'open' : 'close'}>
           <Loader></Loader>
-        </div>
+        </Container>
       ) : (
-        <div
-          id={
-            enabled === true ? 'modal-open-animation' : 'modal-close-animation'
-          }
-          className="modal-content-container"
-        >
-          <button className="modal-close-button" onClick={onClose}>
-            <img
-              className="modal-close-image"
-              src="images/close.svg"
-              alt="fechar modal"
-            ></img>
-          </button>
-          <div className="modal-title-container">
-            <h1>{item ? 'Editar' : 'Adicionar'} Item</h1>
-          </div>
-          <div className="modal-input-container">
+        <Container anim={enabled === true ? 'open' : 'close'}>
+          <CloseButton onClick={onClose}>
+            <CloseImage></CloseImage>
+          </CloseButton>
+          <TitleContainer>
+            <BigTitle>{item ? 'Editar' : 'Adicionar'} Item</BigTitle>
+          </TitleContainer>
+          <InputContainer>
             <Input
               onChange={(text) => setName(text)}
               value={name}
@@ -99,8 +89,8 @@ export const Modal = ({ enabled, onClose, item }) => {
               type="text"
               required={true}
             ></Input>
-          </div>
-          <div className="modal-input-container">
+          </InputContainer>
+          <InputContainer>
             <Input
               onChange={(value) => setQuantity(value)}
               value={quantity}
@@ -109,8 +99,8 @@ export const Modal = ({ enabled, onClose, item }) => {
               min={1}
               required={true}
             ></Input>
-          </div>
-          <div className="modal-button-container">
+          </InputContainer>
+          <ButtonContainer>
             <Button
               onClick={() => {
                 if (!item) {
@@ -123,9 +113,9 @@ export const Modal = ({ enabled, onClose, item }) => {
             >
               {item ? 'Editar' : 'Adicionar'}
             </Button>
-          </div>
-        </div>
+          </ButtonContainer>
+        </Container>
       )}
-    </form>
+    </Form>
   )
 }

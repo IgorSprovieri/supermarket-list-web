@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Input } from 'components'
-import { SAVE_USERNAME_PATH } from 'services/constants'
 import {
-  ScreenContainer,
-  ContentContainer,
-  ShoppingBagImage,
+  Button,
+  Input,
   Title,
   SubTitle,
+  ShoppingBagImage,
+  ScreenContainer
+} from 'components'
+import { SAVE_USERNAME_PATH } from 'services/constants'
+import {
+  ContentContainer,
   InputContainer,
   ButtonContainer
 } from 'screens/Home/styled'
@@ -33,13 +36,15 @@ export const HomeScreen = () => {
 
   return (
     <ScreenContainer>
-      <ContentContainer id={pageAnimation}>
+      <ContentContainer anim={pageAnimation}>
         <ShoppingBagImage></ShoppingBagImage>
-        <Title>Sua lista de supermercado mais fácil do que nunca</Title>
-        <SubTitle>
+        <Title width="310" align="center">
+          Sua lista de supermercado mais fácil do que nunca
+        </Title>
+        <SubTitle width="310" align="center" mb="48">
           Ajudamos você a organizar sua lista de compras de forma descomplicada.
         </SubTitle>
-        <SubTitle width="452" align="left" marginBottom="16">
+        <SubTitle width="452" align="left" mb="16">
           Digite abaixo seu usuário para ter acesso a sua lista de compras:
         </SubTitle>
 
