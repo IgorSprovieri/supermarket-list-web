@@ -50,7 +50,7 @@ export const ListCard = (props) => {
         </TextContainer>
       </LeftContainer>
       <div>
-        <CardButton Click={onClickDelete}>
+        <CardButton onClick={onClickDelete}>
           <TrashImage></TrashImage>
         </CardButton>
         <CardButton onClick={onClickUpdate}>

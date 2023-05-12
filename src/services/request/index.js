@@ -1,4 +1,19 @@
 import { api } from 'services/api'
+import { SAVE_USERNAME_PATH } from 'services/constants'
+
+export const getUser = async () => {
+  try {
+    const result = await api.get('/user', {
+      query: {
+        username: localStorage.getItem(SAVE_USERNAME_PATH)
+      }
+    })
+    return result.data
+  } catch (error) {
+    console.log(error)
+    return { error }
+  }
+}
 
 export const getList = async () => {
   try {
