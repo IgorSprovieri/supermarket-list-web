@@ -10,7 +10,7 @@ export const getUser = async () => {
     })
     return result.data
   } catch (error) {
-    console.log(error)
+    alert('Erro ao buscar dados da API')
     return { error }
   }
 }
