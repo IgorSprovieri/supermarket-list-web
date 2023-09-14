@@ -1,35 +1,38 @@
 # Supermarket List
 
-This is an application developed using React.js.
+It's an application developed using React (CRA) and Styled Components.
 
 The main objective is to make life easier for people that go to supermarket. Using the application you no more forget what you need to buy.
 
-# Preview
+## Live App
 
-<img src="public/images/preview.gif" alt="App Preview" width="100%">
-
-## Production App
-
-<a href="https://supermarket-list-web-delta.vercel.app">supermarket-list-web-delta.vercel.app</a>
+```
+https://app.supermarket-list.ispapps.com
+```
 
 The app was deployed with vercel
 
-## Supermarket list API
+## Preview
 
-The API that this app use:
-
-<a href="https://github.com/IgorSprovieri/supermarket-list-API">github.com/IgorSprovieri/supermarket-list-API</a>
+<img src="./public/images/preview.gif" alt="App Preview" width="100%">
 
 ## Used Technologies
 
-- React.js
-- CSS
+- React
+- Styled Components
 - Axios
 - React Router
 
+## Main Concepts Applied
+
+- JSX
+- React Hooks
+- Atomic Design
+
 ## Requirements to Run:
 
-- Node.js (https://nodejs.org/en/)
+- Node.js ([nodejs.org](https://nodejs.org/en/))
+- API ([supermarketlist-api.herokuapp.com](https://supermarketlist-api.herokuapp.com))
 
 ## Running Instructions
 
@@ -46,7 +49,13 @@ cd supermarket-list-web
 npm install
 ```
 
-3. Run the project:
+3. Create a .env file following example:
+
+```
+REACT_APP_API_URL=https://supermarketlist-api.herokuapp.com
+```
+
+4. Run the project:
 
 ```
 npm run start
@@ -58,4 +67,4 @@ npm run start
 
 ### _Igor Sprovieri Pereira_
 
-Programming student since 2013, started working with Unity C# in 2020, paticipated in 16 team projects as a freelancer and his own game studio. At this time, he was a tutor on Crie Seus Jogos company, helping students and writing articles to company's website. In 2022 he decided to learn web development with HTML, CSS and JS. Actually he is fullstack programmer and he is specializing in react.js, node.js, docker, mongoose, postgres and sequelize.
+After working for 3 years as a Unity C# developer, I migrated to the web development and currently have Fullstack knowledge with React and Node. I also have a library for creating web pages, inspired by React, called Frag Components.
