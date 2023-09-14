@@ -75,7 +75,7 @@ export const ListScreen = () => {
     }
     return (
       <ListRenderContainer>
-        {listData.map((item) => (
+        {listData?.map((item) => (
           <ListCard
             key={item._id}
             item={item}

@@ -1,13 +1,8 @@
 import { api } from 'services/api'
-import { SAVE_USERNAME_PATH } from 'services/constants'
 
 export const getUser = async () => {
   try {
-    const result = await api.get('/user', {
-      query: {
-        username: localStorage.getItem(SAVE_USERNAME_PATH)
-      }
-    })
+    const result = await api.get('/user')
     return result.data
   } catch (error) {
     alert('Erro ao buscar dados da API')
@@ -17,7 +12,7 @@ export const getUser = async () => {
 
 export const getList = async () => {
   try {
-    const result = await api.get('/items')
+    const result = await api.get('/list-items')
     return result.data
   } catch (error) {
     alert('Erro ao buscar dados da API')
@@ -27,7 +22,7 @@ export const getList = async () => {
 
 export const updateItem = async (id, item) => {
   try {
-    const result = await api.put(`/item/${id}`, {
+    const result = await api.put(`/list-item/${id}`, {
       ...item
     })
     return result.data
@@ -39,7 +34,7 @@ export const updateItem = async (id, item) => {
 
 export const deleteItem = async (id) => {
   try {
-    const result = await api.delete(`/item/${id}`)
+    const result = await api.delete(`/list-item/${id}`)
     return result.data
   } catch (error) {
     alert('Erro ao deletar dados da API')
@@ -49,7 +44,7 @@ export const deleteItem = async (id) => {
 
 export const createItem = async (item) => {
   try {
-    const result = await api.post('item', { ...item })
+    const result = await api.post('list-item', { ...item })
     return result.data
   } catch (error) {
     alert('Erro ao salvar dados da API')
