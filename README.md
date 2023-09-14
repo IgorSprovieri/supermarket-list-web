@@ -69,4 +69,4 @@ npm run start
 
 ### _Igor Sprovieri Pereira_
 
-After working for 3 years as a Unity C# developer, I migrated to the web development and currently have Fullstack knowledge with React and Node. I also have a library for creating web pages, inspired by React, called Frag Components.
+After working as a Unity developer for 3 years, I migrated to the web development area and currently have Fullstack knowledge with React and Node. I have an app for the Apple Store and Google Play and a library for creating web pages inspired by React.
