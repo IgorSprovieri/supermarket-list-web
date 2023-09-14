@@ -14,7 +14,7 @@ The app was deployed with vercel
 
 ## Preview
 
-<img src="https://raw.githubusercontent.com/IgorSprovieri/supermarket-list-web/master/public/preview.gif" alt="App Preview" width="100%">
+![Preview](./public/preview.gif)
 
 ## Used Technologies
 
@@ -27,7 +27,9 @@ The app was deployed with vercel
 
 - JSX
 - React Hooks
+- List Items
 - Atomic Design
+- Mobile Responsive
 
 ## Requirements to Run:
 
