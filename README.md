@@ -14,7 +14,7 @@ The app was deployed with vercel
 
 ## Preview
 
-<img src="./public/images/preview.gif" alt="App Preview" width="100%">
+<img src="./public/preview.gif" alt="App Preview" width="100%">
 
 ## Used Technologies
 
